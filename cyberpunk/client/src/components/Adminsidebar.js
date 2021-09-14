@@ -32,8 +32,8 @@ import React,{ Component } from "react";
         <a href="#"><i class="fa fa-building" ></i><span>Building Management</span></a>
         <a href="/waterResourse"><i class="fa fa-tint"></i><span>Water Resourse</span></a>
         <a href="#"><i class="fa fa-volume-control-phone"></i><span>Telecommunication</span></a>
-        <a href="#"><i class="fa fa-money"></i><span>financialmanagement</span></a>
-        <a href="#"><i class="fa fa-truck"></i><span>Inventorymanagement</span></a>
+        <a href="#"><i class="fa fa-money"></i><span>financial management</span></a>
+        <a href="#"><i class="fa fa-truck"></i><span>Inventory management</span></a>
         <a href="#"><i class="fa fa-user"></i><span>Customer Management</span></a>
         <a href="#"><i class="fa fa-briefcase"></i><span>Employee Management</span></a>
       
