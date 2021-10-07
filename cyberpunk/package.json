@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client":"npm run start --prefix client",
+    "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server.js"
   },
@@ -17,8 +17,11 @@
     "concurrently": "^6.2.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^6.0.4",
+    "jspdf": "^2.4.0",
+    "jspdf-autotable": "^3.5.20",
+    "mongoose": "^6.0.6",
     "nodemailer": "^6.6.3",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "react-facebook-login": "^4.1.1"
   }
 }

@@ -22,6 +22,18 @@ import Allmonths from "./components/Allmonths";
 import firstwater from "./components/firstwater";
 import AdminSideBar from "./components/Adminsidebar";
 
+//Telecommunications
+
+import search from './components/search';
+import addTelephone from './components/addTelephone';
+import deletePhone from './components/deletePhone';
+import editTelephone from './components/editTelephone';
+import TelephoneDetails from './components/TelephoneDetails';
+import list from './components/list';
+import page from './components/page';
+import NavBar from './components/NavBar';
+import report from "./components/report";
+import sendMessage from "./components/sendMessage";
 
 
 export default class App extends Component{
@@ -48,11 +60,34 @@ return(
  <Route path="/month/:id" component={Qualitydetails}></Route>
  <Route path="/announcement" component={Announcement}></Route>
  
- </div>
- </BrowserRouter>
+ 
+
+
+
 
  
-)
+          
+
+
+         <Route path ="/telecommunication" exact component={page}></Route>
+         <Route path ="/list" exact component={list}></Route>
+         <Route path="/add" component ={addTelephone}></Route>
+         <Route path ="/delete" component={deletePhone}></Route>
+         <Route path = "/edit/:id" component={editTelephone}></Route>
+         <Route path = "/phone/:id" component={TelephoneDetails}></Route>
+         <Route path = "/search" component={search}></Route>
+         <Route path = "/report" component={report}></Route>
+         <Route path = "/sendMessage" component={sendMessage}></Route>
+        
+        
+       
+  
+         </div>
+      </BrowserRouter>
+
+
+    )
+
 
 
 
@@ -60,3 +95,4 @@ return(
 
 
 }
+

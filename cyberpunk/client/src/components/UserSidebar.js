@@ -29,6 +29,7 @@ import React,{ Component } from "react";
     
         <a href="#"><i class="fa fa-building" ></i><span>Building Management</span></a>
         <a href="/waterResourse"><i class="fa fa-tint"></i><span>Water Resourse</span></a>
+        <a href="/telecommunication"><i class="fa fa-tint"></i><span>Water Resourse</span></a>
      
       
       </div>
@@ -39,7 +40,7 @@ import React,{ Component } from "react";
       <a href="#"><i class="fa fa-taxi"></i><span>Transportation</span></a> 
       
       <a href="#"><i class="fa fa-building" ></i><span>Building Management</span></a>
-      <a href="/waterResourse"><i class="fa fa-tint"></i><span>water Resourse</span></a>
+      <a href="/telecommunication"><i class="fa fa-tint"></i><span>water Resourse</span></a>
     
     </div>
     

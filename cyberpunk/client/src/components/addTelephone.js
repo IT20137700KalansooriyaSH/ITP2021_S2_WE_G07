@@ -72,7 +72,7 @@ export default class addTelephone extends Component{
                BID:"",
                SID:"",
                month:"",
-               Date:""
+              Date:""
            }
            )
           }
@@ -137,25 +137,28 @@ render() {
 
             <div className="form-group" style={{marginBotton:'15px'}}>
                 <label style={{marginBotton:'5px'}}>Month</label>
-                <input type="number"
+                <input type="Date"
                 className="form-control"
                 name="month"
                 placeholder="Enter Month you add the phone"
                 min="1" max="12"
                 value={this.state.month}
                 onChange={this.handleInputChange}required/>
-                 
+                <span class="validity"></span> 
             </div>
-
+            
+            
             <div className="form-group" style={{marginBotton:'15px'}}>
-                <label style={{marginBotton:'5px'}}>Date</label>
-                <input type="number"
+                <label style={{marginBotton:'5px'}}>Time</label>
+                <input type="time"
                 className="form-control"
-                name="Date"
-                placeholder="Enter Date you add the phone"
+                name="Date" 
+                placeholder="Enter current time you add the phone"
                 min="1" max="31"
                 value={this.state.Date}
-                onChange={this.handleInputChange}required/>
+                onChange={this.handleInputChange}required/> 
+                
+                
                
             </div>
 
