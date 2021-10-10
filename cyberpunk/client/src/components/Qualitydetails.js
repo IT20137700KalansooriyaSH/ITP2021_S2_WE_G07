@@ -3,6 +3,7 @@ import axios from "axios";
 import { CalendarComponent} from '@syncfusion/ej2-react-calendars';
 
 
+
  export default class Qualitydetails extends Component{
 
     constructor(props){

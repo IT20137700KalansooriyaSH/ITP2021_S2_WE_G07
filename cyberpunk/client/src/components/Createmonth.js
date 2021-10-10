@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import axios from "axios";
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default class Createmonth extends Component{
 constructor(props){
@@ -16,8 +17,8 @@ this.state={
     Chloride:"",
     DissolvedOxygen:"",
     Ammonium:"",
-    publicsheddate:""
-   
+    publicsheddate:"",
+    errors:{}
 
 }
 
@@ -38,13 +39,47 @@ handleInputChange = (e) =>{
 
 }
 
+formValidation=()=>{
+  const{month,PH_vale,Temperature,Turbidity_level,BOD_value,Hardness,Chloride,DissolvedOxygen,Ammonium,publicsheddate}=this.state;
+  let isValid=true;
+  const errors={};
 
+  if(PH_vale.trim().length>1){
+    errors.PHvaluedlength="drinking water ph value  must smaller than 10";
+    isValid=false;
+  }
+  if(Temperature.trim().length>2){
+    errors.PHvaluedlength="water tempreature cannot be exseed 100c`";
+    isValid=false;
+  }
+
+  if(PH_vale.trim().length==0||month.trim().length==0||Turbidity_level.trim().length==0||Temperature.trim().length==0||BOD_value.trim().length==0||Hardness.trim().length==0||Chloride.trim().length==0||DissolvedOxygen.trim().length==0||Ammonium.trim().length==0||publicsheddate.trim().length==0){
+    //errors.PHvaluedlength="All fields must fill";
+    Swal.fire({
+      
+      icon: 'error',
+      title: 'Oops...',
+      text: 'A required feild is missing .Please fill out all required fields and try again',
+  
+    })
+    isValid=false;
+  }
+
+
+ this.setState({errors});
+ return isValid;
+}
 
 
 
   onSubmit=(e)=>{
   e.preventDefault();
   const{month,PH_vale,Temperature,Turbidity_level,BOD_value,Hardness,Chloride,DissolvedOxygen,Ammonium,publicsheddate}=this.state;
+  
+  const isValid=this.formValidation();
+
+  if(isValid)
+  {
   const data={
     month:month,
     PH_vale:PH_vale,
@@ -61,7 +96,17 @@ handleInputChange = (e) =>{
 console.log(data);
 axios.post(`/month/save`,data).then((res)=>{
   if(res.data.success){
-    alert("month's details added successfully")
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'new Month details has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+
+    //alert("month's details added successfully")
       this.setState(
       {
         month:"",
@@ -83,20 +128,45 @@ axios.post(`/month/save`,data).then((res)=>{
 })
 
   }
+}
 
 
  render(){
+
+
+  const{month,PH_vale,Temperature,Turbidity_level,BOD_value,Hardness,Chloride,DissolvedOxygen,Ammonium,publicsheddate,errors}=this.state
      return(
-         <div className="col-md-8 mt-4 mx-auto">
-             <h1 className="h3 mb-3 font-weight-normal">Add new Month's details</h1>
+    
+<div>
+     
+
+<h1>Add new Month's details</h1>
+      
+        
+       
+            
        <form className="need-validation" noValidate>
+       <div class="container contact">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="contact-info">
+      <h2>Water Quality Parameeters</h2>
+				<img src="Home/wquality1.png"  width="200" height="200"alt="image"/>
+			
+			</div>
+		</div>
+
+
+       <div class="col-md-9">
+       <div class="contact-form">
+
 
        <div class="row">
        <div class="col-md-4 ">
 
   <div className="form-group" style={{marginBottom:'15px'}}>
     <label style={{marginBottom:'5px'}}>Month</label>
-    <input type="text" 
+    <input type="month" 
     className="form-control" 
     name="month"
     placeholder="Enter the month"
@@ -203,18 +273,32 @@ axios.post(`/month/save`,data).then((res)=>{
   </div>
 
  </div>
-</div>
+
+
   
 
-
+ </div>
 
   <button type="submit" class="btn btn-success" style={{marginBottom:'15px'}} onClick={this.onSubmit}>
       <i className="far fa-check-square"></i>
       &nbsp;
       Save</button>
-</form>
+  
+      {Object.keys(errors).map((key)=>{
 
-         </div>
+return <div style={{color: "white"}} key={key}><h2>{errors[key]}</h2></div>
+})}
+
+</div>
+  </div>
+ 
+  </div>
+</div>
+</form>
+</div>
+
+        
+        
      )
  }
  

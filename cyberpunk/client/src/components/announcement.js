@@ -118,20 +118,25 @@ return(
                      id="email" 
                      placeholder="Enter email" 
                      name="email"
-                     value={this.state.email}
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                     value={this.state.email} required
                      onChange={this.handleEmail}/>
+
+<div id="validationServerUsernameFeedback" class="invalid-feedback">
+        Please choose a username.
+      </div>
 				  </div>
 				</div>
 
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="comment">message:</label>
+				  <label class="control-label col-sm-2" for="comment">Message:</label>
 				  <div class="col-sm-10">
 					<textarea class="form-control" 
                     rows="5" 
                     id="message"
                     placeholder="Enter the message . . ."  
                     name="message"
-                    value={this.state.message}
+                    value={this.state.message} required
                     onChange={this.handleMessage}></textarea>
 				  </div>
 				</div>

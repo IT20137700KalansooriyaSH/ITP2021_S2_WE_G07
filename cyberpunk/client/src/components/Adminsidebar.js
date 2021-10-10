@@ -27,13 +27,13 @@ import React,{ Component } from "react";
       </div>
       <div class="mobile_nav_items">
       
-        <a href="#"><i  class="fa fa-taxi"></i><span>Transportation</span></a> 
+        <a href="/transporthome"><i  class="fa fa-taxi"></i><span>Transportation</span></a> 
     
         <a href="#"><i class="fa fa-building" ></i><span>Building Management</span></a>
         <a href="/waterResourse"><i class="fa fa-tint"></i><span>Water Resourse</span></a>
-        <a href="#"><i class="fa fa-volume-control-phone"></i><span>Telecommunication</span></a>
+        <a href="/telecommunication"><i class="fa fa-volume-control-phone"></i><span>Telecommunication</span></a>
         <a href="#"><i class="fa fa-money"></i><span>financial management</span></a>
-        <a href="#"><i class="fa fa-truck"></i><span>Inventory management</span></a>
+        <a href="/inventory"><i class="fa fa-truck"></i><span>Inventory management</span></a>
         <a href="#"><i class="fa fa-user"></i><span>Customer Management</span></a>
         <a href="#"><i class="fa fa-briefcase"></i><span>Employee Management</span></a>
       
@@ -42,13 +42,13 @@ import React,{ Component } from "react";
  
     <div class="sidebar">
      
-      <a href="#"><i class="fa fa-taxi"></i><span>Transportation</span></a> 
+      <a href="/transporthome"><i class="fa fa-taxi"></i><span>Transportation</span></a> 
       
       <a href="#"><i class="fa fa-building" ></i><span>Building Management</span></a>
       <a href="/waterResourse"><i class="fa fa-tint"></i><span>water Resourse</span></a>
-      <a href="#"><i class="fa fa-volume-control-phone"></i><span> Telecommunication</span></a>
+      <a href="/telecommunication"><i class="fa fa-volume-control-phone"></i><span> Telecommunication</span></a>
       <a href="#"><i class="fa fa-money"></i><span>financial management</span></a>
-      <a href="#"><i class="fa fa-truck"></i><span>Inventory management</span></a>
+      <a href="/inventory"><i class="fa fa-truck"></i><span>Inventory management</span></a>
       <a href="#"><i class="fa fa-user"></i><span>Customer Management</span></a>
       <a href="#"><i class="fa fa-briefcase"></i><span>Employee Management</span></a>
     </div>

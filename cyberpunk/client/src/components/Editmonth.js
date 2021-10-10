@@ -116,19 +116,32 @@ import axios from "axios";
  render(){
     return(
 
-
-      <div class="content">
-        <div className="col-md-8 mt-4 mx-auto">
-            <h1 className="h3 mb-3 font-weight-normal">Edite  Month's details</h1>
-      <form className="need-validation" noValidate>
+      
+      <div>
+    <h1 >Edite  Month's details</h1>
    
+           
+      <form className="need-validation" noValidate>
+      <div class="container contact">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="contact-info">
+      <h2>Water Quality Parameeters</h2>
+				<img src="/Home/wquality1.png"  width="200" height="200"alt="image"/>
+			
+			</div>
+		</div>
+
+
+       <div class="col-md-9">
+       <div class="contact-form">
 
       <div class="row">
        <div class="col-md-4 ">
 
   <div className="form-group" style={{marginBottom:'15px'}}>
     <label style={{marginBottom:'5px'}}>Month</label>
-    <input type="text" 
+    <input type="month" 
     className="form-control" 
     name="month"
     placeholder="Enter the month"
@@ -247,11 +260,15 @@ import axios from "axios";
      <i className="far fa-check-square"></i>
      &nbsp;
      update</button>
+     </div>
+  </div>
+ 
+  </div>
+</div>
 </form>
 
         </div>
-
-        </div>
+        
     )
  }
  

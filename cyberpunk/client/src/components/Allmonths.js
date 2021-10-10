@@ -1,6 +1,11 @@
+
 import React ,{Component} from 'react'
 import axios from 'axios';
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import jspdf from 'jspdf'
+import "jspdf-autotable"
 
 export default class Allmonths extends Component{
 constructor(props){
@@ -11,6 +16,7 @@ months:[]
 };
 
 }
+
 
 componentDidMount(){
   this.retriveMonths();
@@ -30,10 +36,57 @@ axios.get("/month").then(res=>{
 }
 
 onDelete= (id) =>{
-    axios.delete(`/month/delete/${id}`).then((res)=>{
-        alert("Delete successfully");
+   
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swalWithBootstrapButtons.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+
+      axios.delete(`/month/delete/${id}`).then((res)=>{
+      
         this.retriveMonths();
     })
+
+
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelled',
+        'Your imaginary file is safe :)',
+        'error'
+      )
+    }
+  })
+
+
+
+
+
+
+
+  
 }
 
 
@@ -64,7 +117,52 @@ axios.get("/month").then(res=>{
 
 
 render(){
+
+  const generatePDF = months => {
+
+    const doc = new jspdf();
+    const tableColumn = ["Month", "Ph value", "Temperature","Turbidity","BOD value","Hardness","Chloride","Dissolved Oxygen","Ammonium","Published Date"];
+    const tableRows = [];
+    const date = Date().split(" ");
+    const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+
+    months.map(months => {
+        const monthData = [
+            months.month,
+            months.PH_vale,
+            months.Temperature,
+            months.Turbidity_level,
+            months.BOD_value,
+            months.Hardness,
+            months.Chloride,
+            months.DissolvedOxygen,
+            months.Ammonium,
+            months.publicsheddate
+          
+           
+        ];
+        tableRows.push(monthData);
+    })
+    doc.text("Cyberpunk Smart City", 70, 8).setFontSize(13);
+    doc.text("Water Quality Parameters Levels of Dinkinking water in the city", 14, 16).setFontSize(13);
+    doc.text(`Report Genarated Date - ${dateStr}`, 14, 23);
+
+    //right down width height
+    //doc.addImage(img, 'JPEG', 170, 8, 25, 25);
+    doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY:35});
+    doc.save("Cyberpunk-Water-resorue-Management-Unit.pdf");
+ 
+  };
+
+
+
+
   return(
+    
+
+
+
+    
 <div className="container">
     <div className="row">
     <div className="col-lg-9 mt-2 mb-2">
@@ -82,7 +180,7 @@ onChange={this.handleserchArea}>
 </input>
 
 </div>
-  <table class="table">
+  <table class="table" >
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -150,7 +248,10 @@ onChange={this.handleserchArea}>
   </tbody>
 </table>
 
+<div>
 
+      
+     </div>
 
 
 </div>
@@ -159,16 +260,21 @@ onChange={this.handleserchArea}>
 
 
 
-<button className="btn btn-success"><a href="/addmonthsdetails" style={{textDecoration:'none' ,color:'white'}}> Add new month </a></button>
+<button className="btn btn-dark"><a href="/addmonthsdetails" style={{textDecoration:'none' ,color:'white'}}> Add new month </a></button>
 <br/>
 <br/>
 
 <button className="btn btn-info"><a href="/monthUsers" style={{textDecoration:'none' ,color:'white'}}>Users Page</a></button>
+<br/>
+<br/>
+<button type="Print" class="btn btn-secondary" onClick={() => generatePDF(this.state.months)}>Generate Report</button>
 
 
 
+   
+<div>
 
-
+     </div>
 
 
 
@@ -186,6 +292,13 @@ onChange={this.handleserchArea}>
 
 
 </div>
+
+
+
+
+
+
+
 
   )
 
@@ -193,3 +306,24 @@ onChange={this.handleserchArea}>
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

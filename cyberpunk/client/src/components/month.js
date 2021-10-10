@@ -1,8 +1,11 @@
 import React,{Component}from 'react'
 import axios from 'axios';
 import { CalendarComponent} from '@syncfusion/ej2-react-calendars';
+import ReactToPrint from 'react-to-print';
 
-export default class month extends Component{
+
+
+class LastMonth extends Component{
 constructor(props){
 super(props);
 this.state={
@@ -38,12 +41,20 @@ if(res.data.success){
 
 render(){
     return(
-    <div >
+
+         
+    <div  >
        {this.state.months.map(months=>(
            <div>
           <div class="wrapper">
 
               <h1>{months.month}</h1>
+ <hr/>
+
+
+
+
+
 
         <table id="acrylic">
             <thead>
@@ -120,16 +131,17 @@ render(){
             </tbody>
         </table>
     </div>
-
+   
     <div class="float-right">
-        <p>Published on </p>
+        <h4>Published on </h4>
     <CalendarComponent value={months.publicsheddate} />
+    <h4>
     <i>Water Resource Management Unit of</i>
     
     <br/>
-    <i>Cyberpunk SmartCity</i>
-    </div>
-
+    <i>Cyberpunk SmartCity</i></h4>
+    
+</div>
            </div>
 
 
@@ -149,6 +161,26 @@ render(){
     
     }
 }
+
+export default class monthPrint extends React.PureComponent {
+    render() {
+      return (
+        <div>
+          <ReactToPrint
+             trigger={() => {
+               // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+                //to the root node of the returned component as it will be overwritten.
+               return <a href="#">Print this out!</a>;
+            }}
+             content={() => this.componentRef}
+           />
+           
+           <LastMonth ref={el => (this.componentRef = el)} />
+         </div>
+       );
+     }
+   }
+
 
 
 

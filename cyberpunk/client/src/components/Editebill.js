@@ -89,62 +89,84 @@ if(res.data.success){
  render(){
      return(
 
-
-      <div class="content">
-         <div className="col-md-8 mt-4 mx-auto">
-             <h1 className="h3 mb-3 font-weight-normal">Edit  bill </h1>
-       <form className="need-validation" noValidate>
-    
-
-  <div className="form-group" style={{marginBottom:'15px'}}>
-    <label style={{marginBottom:'5px'}}>BuildingId</label>
-    <input type="text" 
-    className="form-control" 
-    name="BuildingId"
-    placeholder="Enter the buildingid"
-    value={this.state.BuildingId}
-    onChange={this.handleInputChange}/>
+      <div>
+      <div className="col-md-8 mt-4 mx-auto">
+          <h1 >Edit bill </h1>
+          </div>
+    <form onSubmit={this.onSubmit}>
    
-  </div>
-  
-  <div className="form-group" style={{marginBottom:'15px'}}>
-    <label style={{marginBottom:'5px'}}> No of unites used</label>
-    <input type="text" 
-    className="form-control" 
-    name="NoOfUnit"
-    placeholder="Enter the NoOfUnit"
-    value={this.state.NoOfUnit}
-    onChange={this.handleInputChange}/>
-   
-  </div>
-  <div className="form-group" style={{marginBottom:'15px'}}>
-    <label style={{marginBottom:'5px'}}>Amount</label>
-    <input type="text" 
-    className="form-control" 
-    name="Amount"
-    placeholder="Enter the Amount"
-    value={this.state.Amount}
-    onChange={this.handleInputChange}/>
-   
-  </div>
-  
+ <div class="container contact">
+<div class="row">
+ <div class="col-md-3">
+   <div class="contact-info">
+   <h2>Water Consumption</h2>
+   <img src="/Home/waterbillicon.png"  width="200" height="200"alt="image"/>
+   </div>
+ </div>
 
 
-  <button type="submit" class="btn btn-success" style={{marginBottom:'15px'}} onClick={this.onSubmit}>
-      <i className="far fa-check-square"></i>
-      &nbsp;
-      Save</button>
+    <div class="col-md-9">
+    <div class="contact-form">
+
+
+      
+<div className="form-group" style={{marginBottom:'15px'}}>
+ <label style={{marginBottom:'5px'}}>BuildingId *</label>
+ <input type="text" 
+ className="form-control" 
+ name="BuildingId"
+ placeholder="Enter the buildingid"
+ value={this.state.BuildingId}
+ onChange={this.handleInputChange}/>
+
+</div>
+
+<div className="form-group" style={{marginBottom:'15px'}}>
+ <label style={{marginBottom:'5px'}}> No of unites used *</label>
+ <input type="text" 
+ className="form-control" 
+ name="NoOfUnit"
+ placeholder="Enter the NoOfUnit"
+ value={this.state.NoOfUnit}
+ onChange={this.handleInputChange}/>
+
+</div>
+<div className="form-group" style={{marginBottom:'15px'}}>
+ <label style={{marginBottom:'5px'}}>Amount *</label>
+ <input type="text" 
+ className="form-control" 
+ name="Amount"
+ placeholder="Enter the Amount"
+ value={this.state.Amount}
+ onChange={this.handleInputChange}/>
+
+</div>
+
+</div>
+
+<button type="submit" class="btn btn-success" style={{marginBottom:'15px'}} onClick={this.onSubmit}>
+   <i className="far fa-check-square"></i>
+   &nbsp;
+   Save</button>
+
+
+
+
+</div>
+</div>
+
+</div>
 </form>
+</div>
 
-         </div>
-
-         </div>
+    
      )
  }
  
 
 
  }
+
 
 
 

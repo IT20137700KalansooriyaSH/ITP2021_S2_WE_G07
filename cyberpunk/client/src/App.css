@@ -4,10 +4,11 @@
   height: 400px;
 }
 .col-md-3{
-  background: hsl(216, 40%, 65%);
+  background: hsl(0, 1%, 14%);
   padding: 4%;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+  color: #fff;
 }
 .contact-info{
   margin-top:10%;
@@ -19,7 +20,7 @@
   margin-bottom: 10%;
 }
 .col-md-9{
-  background: hsl(84, 25%, 92%);
+  background:rgba(0, 0, 0, 0.5);
   padding: 3%;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -113,6 +114,20 @@ display: none;
 
 #acrylic tbody tr:last-child td {
   border-bottom: none;
+}
+
+.cards {
+  display: flex;
+  text-align: center;
+}
+
+.profile_taxi_img{
+  height: 270px;
+  width: 400px;
+}
+
+.profile_contents{
+  display: flex;
 }
 
 
