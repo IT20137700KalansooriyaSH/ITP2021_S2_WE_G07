@@ -34,8 +34,16 @@ import axios from 'axios';
         
         }
         
-        
+    
+        onUpdate=() =>{
+          //axios.delete(`/phone/delete/${id}`).then((res)=>{
+           alert("Updated Successfully!!");
+              //this.retrievePhones();
+            //})
+            
+       }
     onSubmit=(e)=>{
+          
           e.preventDefault();
           const id=this.props.match.params.id;
           const{PID,PhoneNumber,BID,SID,month,Date}=this.state;
@@ -53,7 +61,7 @@ import axios from 'axios';
 
         axios.put(`/phone/update/${id}`,data).then((res)=>{
           if(res.data.success){
-              alert("Updated Succesfully!")
+            alert("You Can Update");
               this.setState(
               {
                 PID:"",
@@ -79,6 +87,7 @@ import axios from 'axios';
         axios.get(`/phone/${id}`).then((res)=>{
     
         if (res.data.success){
+            
             this.setState({
               PID:res.data.post.PID,
               PhoneNumber:res.data.post.PhoneNumber,
@@ -116,11 +125,11 @@ import axios from 'axios';
 
             <div className="form-group" style={{marginBotton:'15px'}}>
                 <label style={{marginBotton:'5px'}}>Telephone Number</label>
-                <input type ="number"
+                <input type ="tel"
                 className="form-control"
                 name="PhoneNumber"
-                placeholder="Enter phone Number"
-                pattern="[0][17][0-9]{8}"
+                placeholder="Enter [0][0-9]{9} this format"
+                pattern="[0][0-9]{9}"
                 value={this.state.PhoneNumber}
                 maxlength = "10"
                 minLength ="10"
@@ -152,7 +161,7 @@ import axios from 'axios';
 
             <div className="form-group" style={{marginBotton:'15px'}}>
                 <label style={{marginBotton:'5px'}}>Month</label>
-                <input type="number"
+                <input type="Date"
                 className="form-control"
                 name="month"
                 placeholder="Enter Month you add the phone"
@@ -163,8 +172,8 @@ import axios from 'axios';
             </div>
 
             <div className="form-group" style={{marginBotton:'15px'}}>
-                <label style={{marginBotton:'5px'}}>Date</label>
-                <input type="number"
+                <label style={{marginBotton:'5px'}}>Time</label>
+                <input type="time"
                 className="form-control"
                 name="Date"
                 placeholder="Enter Date you add the phone"
@@ -176,9 +185,9 @@ import axios from 'axios';
 
            
             
-            <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+            <button className="btn btn-success" type="submit" style={{marginTop:'15px'} }  onClick={()=>this.onUpdate()} >
             <i className="far fa-check-square"></i>
-             &nbsp; ADD PHONE
+             &nbsp; Update
             </button>
             </form>
 
@@ -188,4 +197,5 @@ import axios from 'axios';
  
 
  }
+ 
  

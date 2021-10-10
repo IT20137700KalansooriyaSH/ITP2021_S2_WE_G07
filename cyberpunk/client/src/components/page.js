@@ -23,10 +23,10 @@ export default class page extends Component{
          
          &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
          <a className = "btn btn-warning" href ={'/add'}>
-         <i className ="fas fa-edit"></i> &nbsp;ADD </a> &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;
+         <i className ="fas fa-edit"></i> &nbsp;ADD </a> &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;   &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;
                    
          <a className = "btn btn-warning" href ={'/search'}>
-         <i className ="fas fa-edit"></i> &nbsp;SEARCH</a> &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;
+         <i className ="fas fa-edit"></i> &nbsp;SEARCH</a>&nbsp;
 
          <a className = "btn btn-warning" href ={'/list'}>
          <i className ="fas fa-edit"></i> &nbsp;UPDATE</a>&nbsp;

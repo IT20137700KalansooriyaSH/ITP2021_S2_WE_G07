@@ -63,7 +63,7 @@ export default class report extends Component{
       doc.text("ALL ADDED PHONES", 70, 8).setFontSize(13);
       doc.text("Telephone Detail Report", 14, 16).setFontSize(13);
       doc.text(`Report Genarated Date - ${dateStr}`, 14, 23);
-	 
+   
 	
 
       

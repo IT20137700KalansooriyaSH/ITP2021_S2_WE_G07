@@ -18,6 +18,7 @@ export default class list extends Component{
   }
   retrievePhones(){
     axios.get("/phone/ret").then(res =>{
+   
         if(res.data.success){
           alert("You Can Update or deleted");
           this.setState({
@@ -36,7 +37,7 @@ export default class list extends Component{
        })
   }
 
-
+  
   render(){
 
 
@@ -86,7 +87,8 @@ export default class list extends Component{
                   <td>{phones.month}</td>
                   <td>{phones.Date}</td>
                   <td>
-                    <a className = "btn btn-warning" href ={`/edit/${phones._id}`}>
+                    
+                    <a className = "btn btn-warning" href ={`/edit/${phones._id}`}>             
                       <i className ="fas fa-edit"></i> &nbsp;update
                     </a>
                     &nbsp;

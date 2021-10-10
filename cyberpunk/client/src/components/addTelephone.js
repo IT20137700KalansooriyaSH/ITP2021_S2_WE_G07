@@ -33,7 +33,7 @@ export default class addTelephone extends Component{
     let isValid=true;
     const errors={};
     if(BID.trim().length<3){
-      errors.BIDlength="Building id must length or greater";
+      errors.BIDlength="Building id  format must B** ";
       isValid=false;
     }
     if(!BID.includes("B")){
@@ -101,13 +101,13 @@ render() {
 
             <div className="form-group" style={{marginBotton:'15px'}}>
                 <label style={{marginBotton:'5px'}}>Telephone Number</label>
-                <input type ="number"
+                <input type ="tel"
                 className="form-control"
                 name="PhoneNumber"
-                placeholder="Enter phone Number"
-                pattern="[0][17][0-9]{8}"
+                placeholder="Enter [0][0-9]{9} this format"
+                pattern="[0][0-9]{9}"
                 value={this.state.PhoneNumber}
-                maxlength = "10"
+                maxlength ="10"
                 minLength ="10"
                 onChange={this.handleInputChange}required/>
            
@@ -132,6 +132,9 @@ render() {
                 placeholder="Enter ShopID"
                 value={this.state.SID}
                 onChange={this.handleInputChange}required/>
+
+
+                
               
             </div>
 
@@ -140,7 +143,7 @@ render() {
                 <input type="Date"
                 className="form-control"
                 name="month"
-                placeholder="Enter Month you add the phone"
+                placeholder="Enter Month date add the phone"
                 min="1" max="12"
                 value={this.state.month}
                 onChange={this.handleInputChange}required/>
@@ -163,8 +166,8 @@ render() {
             </div>
 
            
-            
-            <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+        
+            <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} >
             <i className="far fa-check-square"></i>
              &nbsp; ADD PHONE
             </button>
